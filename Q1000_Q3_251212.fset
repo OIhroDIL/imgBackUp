@@ -1,0 +1,116 @@
+[Init]
+//aar vieworks
+
+//Model Name : Q1000_Q3
+//FPGA Ver.  : 
+
+//DAC Bias Control.
+wfpga	0x50	0x9000	//DAC WRM(Write Register Mode)
+wfpga	0x58	0		//DAC_CH8(0.0V) - do not use
+wfpga	0x57	0		//DAC_CH7(0.0V) - do not use
+wfpga	0x56	62		//DAC_CH6(0.8V) - bias6
+wfpga	0x55	179		//DAC_CH5(2.3V) - bias5 
+wfpga	0x51	78		//DAC_CH4(1.0V) - bias4 
+wfpga	0x52	163		//DAC_CH3(2.1V) - bias3
+wfpga	0x53	0		//DAC_CH2(0.0V) - bias2 
+wfpga	0x54	0		//DAC_CH1(0.0V) - bias1 
+
+// Frame Setting 
+//wfpga	0x10	244 	// Image_Xsize = 244(488)
+//wfpga	0x11	184	 	// Image_Ysize = 184
+//wfpga	0x12	3		// Frame Valid Delay
+//wfpga	0x13	8		// Line Valid Delay
+
+// Sensor Regsiter Setting
+wfpga	0x20	1		//GGAIN[1:0](00=1x, 01=2x, 10=3x, 11=4x)
+wfpga	0x21	0x3C	//LGAIN[6:0](0.5x ~ 20x)
+wfpga	0x22	1		//CGAIN[1:0](00=1.5x, 01=1x, 10=0.75x, 11=0.6x)
+wfpga	0x23	0		//RGAIN[0] (0=1x, 1=0.5x)
+wfpga	0x24	1		//BSTM[2:0] CDS Bias
+wfpga	0x25	1		//PRTM[2:0] CDS Ref. Voltage Control
+wfpga	0x26	0		//OFFSET[1:0] Analog Offset
+
+// Exposure Setting 
+//wfpga	0x30	0		// Trigger Period High
+//wfpga	0x31	4000	// Trigger Period Low
+//wfpga	0x32	250		// Exposure Row(Min Vertical Line + Readout Dummy 2)
+
+// Test Regsiter Setting
+//wfpga	0x40	0		//TP_SEL
+//wfpga	0x41	0		//TP1_VALUE
+//wfpga	0x42	0		//TP2_VALUE
+
+//wfpga	0x45	1		//Gray to Binary
+
+// TG Initial Value
+//////////////////////
+// [15] 0 Null
+// [14] 0 Null
+// [13] 0 Null
+// [12] 0 Null
+//////////////////////
+// [11] 0 HSCAN
+// [10] 0 DSHFT
+// [9]  0 RPRE
+// [8]  1 RMPEN
+//////////////////////
+// [7]  1 CNTEN
+// [6]  0 SHR3
+// [5]  0 SHR2
+// [4]  0 SHS
+//////////////////////
+// [3]  0 XSX
+// [2]  0 XRX
+// [1]  1 VCLK
+// [0]  1 VST
+//////////////////////
+
+// Sensor Control Timing
+//wfpga	0x80	0x0183	//TG Initial Value
+//wfpga	0x81	2600		//Timing Period Max
+
+//wfpga	0x82	440		//VST
+//wfpga	0x83	540	
+//wfpga	0x84	0		//VCLK
+//wfpga	0x85	490	
+//wfpga	0x86	230 	//XRX
+//wfpga	0x87	490
+//wfpga	0x88	0		//XSX
+//wfpga	0x89	490
+
+//wfpga	0x8A	100		//SHS
+//wfpga	0x8B	220
+//wfpga	0x8C	360		
+//wfpga	0x8D	480
+//wfpga	0x8E	100		//SHR2
+//wfpga	0x8F	190
+//wfpga	0x90	100		//SHR3
+//wfpga	0x91	200
+
+//wfpga	0x92	100		//CNTEN
+//wfpga	0x93	490
+//wfpga	0x94	100		//RMPEN
+//wfpga	0x95	490
+//wfpga	0x96	100		//RPRE
+//wfpga	0x97	210
+//wfpga	0x98	8		//DSHFT
+//wfpga	0x99	32
+//wfpga	0x9A	840		//HSCAN
+//wfpga	0x9B	1500
+
+
+//Sync Delay
+//wfpga	0xC0	2		// HCLK Mask(HSCAN Start to HCLK Start) 
+//wfpga	0xC1	2047	// CCLK Counter(CCLK Counter Value) 
+//wfpga	0xC2	4		// CCLK Mast(CNTEN Start to CCLK STart)
+
+//LED Control
+//wfpga	0x44	0		//LED 
+
+//Sensor Start
+//wfpga	0x03	1		//SNR_EN 
+
+//wfpga 0xf2    0       // USB RESOLUTION SETING, USB RESET
+
+
+[End]
